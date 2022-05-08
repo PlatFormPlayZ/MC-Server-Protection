@@ -48,7 +48,7 @@ public abstract class Clumps extends Entity {
     
     @Inject(at = @At("TAIL"), method = "tick")
     public void onTick(CallbackInfo callback) {
-        if (!this.world.isClient && !this.isRemoved() && this.world.getTime() % 4 == 0) {
+        if (SewConfig.ALLOW_CLUMPS && !this.world.isClient && !this.isRemoved() && this.world.getTime() % 4 == 0) {
             // Get orbs of same tile
             this.world.getEntitiesByClass(
                 ExperienceOrbEntity.class,
